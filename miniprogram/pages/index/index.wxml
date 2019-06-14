@@ -1,3 +1,7 @@
-<view>
-  行走标记初始化
+<nav bgColor="black" class="nav-instance">
+    <view slot="content">
+        
+    </view>
+</nav>
+<view style='background: #ccc;margin-top: 200rpx;'>
 </view>

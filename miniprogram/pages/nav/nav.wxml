@@ -1,0 +1,23 @@
+<view class='nav-wrap' style="background-color:{{bgColor}};">
+    <view style="height:{{statusBarHeight}}px;background: red;"></view>
+    <view class='content'>
+      <view class='nav-icon-view has-font'>
+        <image style='margin-right: 10rpx;' class='nav-icon' src='../../images/cursor.png'></image>
+        标记
+      </view>
+      <view class='nav-icon-view'>
+        <image class='nav-icon' src='../../images/settings-black.png'></image>
+      </view>
+      <view class='nav-icon-view'>
+        <image class='nav-icon' style="width:38rpx;height:38rpx;" src='../../images/user.png'></image>
+      </view>
+      <view class='nav-icon-view' bindtap='startAnimationInterval' wx:if="{{showLoadingIcon}}">
+        <image
+          class='nav-icon'
+          style="width:37rpx;height:37rpx;"
+          src='../../images/refresh.png'
+          animation="{{animation}}"
+        ></image>
+      </view>
+    </view>
+</view>
