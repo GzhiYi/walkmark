@@ -1,4 +1,4 @@
-<nav bgColor="black" class="nav-instance">
+<nav bgColor="black" class="nav-instance" showIcons="{{['home']}}">
     <view slot="content">
         
     </view>

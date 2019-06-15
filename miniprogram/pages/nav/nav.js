@@ -11,20 +11,28 @@ Component({
     backgroundColor: {
       type: String,
       value: 'rgba(0,0,0,0)'
+    },
+    showIcons: {
+      type: Array
     }
   },
   data: {
     anination: '',
-    showLoadingIcon: false
+    showLoadingIcon: false,
+    showBackIcon: false,
+    showHomeIcons: false
   },
   ready() {
     let {
       statusBarHeight,
       navBarHeight
     } = getApp().globalData
+    const { showIcons } = this.data
     this.setData({
       statusBarHeight,
-      navBarHeight
+      navBarHeight,
+      showBackIcon: showIcons.includes('back'),
+      showHomeIcons: showIcons.includes('home')
     })
   },
   attached() {
