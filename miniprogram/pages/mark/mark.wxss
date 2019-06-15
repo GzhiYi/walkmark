@@ -10,3 +10,25 @@
   min-height:40rpx;
   padding:30rpx 10rpx;
 }
+.label {
+  color: rgb(121, 121, 121);
+  font-size: 30rpx;
+}
+.btn-save {
+  background:none;
+  width:auto;
+  line-height:64rpx;
+  background:orange;
+  border-radius:31rpx;
+  color:#000;
+  float:right;
+  padding: 0 30rpx;
+}
+.invisible-btn {
+  opacity: 0;
+  height:90rpx;
+  position:absolute;
+  width:100%;
+  top:38rpx;
+  z-index: 2;
+}

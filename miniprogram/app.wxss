@@ -20,7 +20,7 @@ button::after{
 .main-content {
   margin: 20rpx;
 }
-input {
-  padding:30rpx 10rpx;
+input, textarea {
+  padding:10rpx 10rpx 30rpx;
   border-bottom:1rpx solid #eee;
 }

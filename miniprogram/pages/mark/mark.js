@@ -1,34 +1,26 @@
-// pages/mark/mark.js
-const amapFile = require('../../src/amap-wx.js')
-
 Page({
   data: {
     statusBarHeight: 0,
     errorMsg: '输入标记名称以继续',
-    markName: '标记名称啊',
-    position: ''
+    markName: '',
+    address: '',
+    latitude: 0,
+    longitude: 0
   },
   onLoad() {
     this.setData({
       statusBarHeight: getApp().globalData.statusBarHeight
     })
-    this.getLocation()
-
   },
-  getLocation() {
+  chooseLocation() {
     const self = this
-    const myMap = new amapFile.AMapWX({ key: getApp().globalData.mapKey })
-    myMap.getRegeo({
-      success: function (data) {
-        //成功回调
-        console.log(data)
+    wx.chooseLocation({
+      success: function(res) {
         self.setData({
-          position: data[0].name
+          address: res.address,
+          latitude: res.latitude,
+          longitude: res.longitude
         })
-      },
-      fail: function (info) {
-        //失败回调
-        console.log(info)
       }
     })
   }

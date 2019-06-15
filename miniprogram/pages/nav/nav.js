@@ -49,7 +49,7 @@ Component({
         delta: 1
       })
     },
-    rotateAni: function (n) {
+    rotateAni(n) {
       _animation.rotate(-360 * (n)).step()
       this.setData({
         animation: _animation.export()
@@ -58,7 +58,7 @@ Component({
     /**
    * 开始旋转
    */
-    showLoading: function () {
+    showLoading() {
       var that = this;
       this.setData({
         showLoadingIcon: true
@@ -72,7 +72,7 @@ Component({
     /**
      * 停止旋转
      */
-    hideLoading: function () {
+    hideLoading() {
       this.setData({
         showLoadingIcon: false
       })
@@ -81,5 +81,12 @@ Component({
         _animationIntervalId = 0;
       }
     },
+    goTo(event) {
+      console.log(event)
+      const { page } = event.currentTarget.dataset
+      wx.navigateTo({
+        url: `/pages/${page}/${page}`
+      })
+    }
   }
 })
