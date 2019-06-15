@@ -1,10 +1,10 @@
-.nav-wrap {
+/* .nav-wrap {
     position: fixed;
     top: 0;
     left: 0;
     width: 750rpx;
     z-index: 1;
-}
+} */
 .content {
   position: relative;
   width: 100%;
@@ -17,6 +17,14 @@
 .nav-icon-view {
   border-radius:50%;
   background:rgb(255, 248, 198);
+  width:70rpx;
+  height:70rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-right: 22rpx;
+}
+.nav-icon-view-back {
   width:70rpx;
   height:70rpx;
   display:flex;

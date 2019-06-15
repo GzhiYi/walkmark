@@ -1,7 +1,7 @@
 <view class='nav-wrap' style="background-color:{{bgColor}};">
     <view style="height:{{statusBarHeight}}px;background: red;"></view>
     <view class='content'>
-      <view class='nav-icon-view' bindtap='back' wx:if="{{showBackIcon}}">
+      <view class='nav-icon-view-back' bindtap='back' wx:if="{{showBackIcon}}">
         <image class='nav-icon' src='../../images/left-arrow-black.png'></image>
       </view>
       <view class='nav-icon-view has-font' wx:if="{{showHomeIcons}}">

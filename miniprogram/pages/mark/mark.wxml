@@ -1,0 +1,11 @@
+<nav bgColor="black" class="nav-instance" showIcons="{{['back']}}"></nav>
+<view class="main-content">
+  <view class='title' style="padding-top: {{statusBarHeight}}rpx;">
+    创建一个标记
+  </view>
+  <view class='error-tips'>{{errorMsg}}</view>
+  <view class='input-form'>
+    <input placeholder='标记名称' value="{{markName}}"></input>
+    <input placeholder='地点' value="{{position}}"></input>
+  </view>
+</view>

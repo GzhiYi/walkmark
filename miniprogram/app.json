@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/mark/mark",
     "pages/index/index"
+    
   ],
   "window": {
     "backgroundColor": "#ffffff",

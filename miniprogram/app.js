@@ -18,6 +18,7 @@ App({
   globalData: {
     statusBarHeight: 0,
     navBarHeight: 0,
-    isLoading: false
+    isLoading: false,
+    mapKey: '1336441a0caba99fa000ea16c31a816d'
   }
 })

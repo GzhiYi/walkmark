@@ -17,3 +17,10 @@ button:focus{
 button::after{
   border: none;
 }
+.main-content {
+  margin: 20rpx;
+}
+input {
+  padding:30rpx 10rpx;
+  border-bottom:1rpx solid #eee;
+}

@@ -1,0 +1,12 @@
+.title {
+  font-size:48rpx;
+  margin-left:10rpx;
+  font-weight:bold;
+}
+.error-tips {
+  font-size:28rpx;
+  color:rgb(226, 78, 78);
+  background:#ccc;
+  min-height:40rpx;
+  padding:30rpx 10rpx;
+}

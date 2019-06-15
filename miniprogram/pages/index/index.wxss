@@ -1,3 +1,12 @@
 page {
   background: rgb(255, 232, 59);
 }
+.recommend {
+  height:800rpx;
+  background:#eee;
+  margin-top:300rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:18rpx;
+}

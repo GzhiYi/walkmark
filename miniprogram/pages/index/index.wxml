@@ -1,7 +1,6 @@
-<nav bgColor="black" class="nav-instance" showIcons="{{['home']}}">
-    <view slot="content">
-        
-    </view>
-</nav>
-<view style='background: #ccc;margin-top: 200rpx;'>
+<nav bgColor="black" class="nav-instance" showIcons="{{['home']}}"></nav>
+<view class="main-content">
+  <view class='recommend'>
+    还未做任何标记，赶紧去标记吧！
+  </view>
 </view>
