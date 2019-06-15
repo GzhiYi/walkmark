@@ -2,27 +2,33 @@
 <view class="main-content">
   <view class='title' style="padding-top: {{statusBarHeight}}rpx;">
     创建一个标记
-    <button class="btn btn-save">保存</button>
+    <button class="btn btn-save" bindtap='save'>保存</button>
   </view>
   <view class='error-tips'>{{errorMsg}}</view>
   <view class='input-form'>
-    <input placeholder='标记名称' value="{{markName}}"></input>
+    <input placeholder='标记名称' value="{{markname}}" data-name="markname" bindinput='onInputChange'></input>
 
-    <view style='position: relative;'>
+    <view class="one-input" style='position: relative;'>
       <text class='label'>地点</text>
       <input :disabled='{{true}}' placeholder='选择地点' value="{{address}}"></input>
       <button class='invisible-btn' bindtap="chooseLocation"></button>
     </view>
 
-    <view style='position: relative;'>
+    <view class="one-input" style='position: relative;'>
       <text class='label'>类别</text>
-      <input :disabled='{{true}}' placeholder='选择类别' value="{{positionType}}"></input>
+      <input :disabled='{{true}}' placeholder='选择类别' value="{{addressType}}"></input>
       <button class='invisible-btn' bindtap="showTypeList"></button>
     </view>
 
-    <view>
+    <view class="one-input">
       <text class='label'>记录</text>
-      <textarea style='width:100%;box-sizing:border-box;' placeholder='途径此处提示什么？' value="{{remark}}"></textarea>
+      <textarea
+        style='width:100%;box-sizing:border-box;'
+        placeholder='途径此处记下...'
+        value="{{remark}}"
+        data-name="remark"
+        bindinput='onInputChange'
+      ></textarea>
     </view>
     
   </view>

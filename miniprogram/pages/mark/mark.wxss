@@ -10,7 +10,7 @@
   padding:30rpx 10rpx;
 }
 .label {
-  color: rgb(121, 121, 121);
+  color: rgb(77, 77, 77);
   font-size: 30rpx;
   margin-left:10rpx;
 }
@@ -45,4 +45,7 @@
   text-align:center;
   font-size:40rpx;
   color: #999;
+}
+.one-input {
+  margin-top: 10rpx;
 }

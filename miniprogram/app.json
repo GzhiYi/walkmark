@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/mark/mark",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/mark/mark"
     
   ],
   "window": {
@@ -10,7 +10,8 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "行走标记",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false
   },
   "sitemapLocation": "sitemap.json",
   "permission": {
