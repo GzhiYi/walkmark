@@ -7,15 +7,32 @@
   <view class='error-tips'>{{errorMsg}}</view>
   <view class='input-form'>
     <input placeholder='标记名称' value="{{markName}}"></input>
+
     <view style='position: relative;'>
       <text class='label'>地点</text>
       <input :disabled='{{true}}' placeholder='选择地点' value="{{address}}"></input>
       <button class='invisible-btn' bindtap="chooseLocation"></button>
     </view>
+
+    <view style='position: relative;'>
+      <text class='label'>类别</text>
+      <input :disabled='{{true}}' placeholder='选择类别' value="{{positionType}}"></input>
+      <button class='invisible-btn' bindtap="showTypeList"></button>
+    </view>
+
     <view>
       <text class='label'>记录</text>
-      <textarea placeholder='途径此处提示什么？' value="{{remark}}"></textarea>
+      <textarea style='width:100%;box-sizing:border-box;' placeholder='途径此处提示什么？' value="{{remark}}"></textarea>
     </view>
     
   </view>
 </view>
+<dialog visible="{{showTypeDialog}}">
+  <view slot="content">
+    <view class='list-item' bindtap='selectType' data-type="吃的">吃的</view>
+    <view class='list-item' bindtap='selectType' data-type="喝的">喝的</view>
+    <view class='list-item' bindtap='selectType' data-type="玩的">玩的</view>
+    <view class='list-item' bindtap='selectType' data-type="乐的">乐的</view>
+    <view class='list-item-cancel' bindtap='showTypeList'>取消</view>
+  </view>
+</dialog>

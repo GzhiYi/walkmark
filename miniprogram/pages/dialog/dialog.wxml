@@ -1,0 +1,5 @@
+<view class="dialog-bg" wx:if="{{visible}}">
+  <view class='dialog'>
+    <slot name='content'></slot>
+  </view>
+</view>

@@ -6,13 +6,13 @@
 .error-tips {
   font-size:28rpx;
   color:rgb(226, 78, 78);
-  background:#ccc;
   min-height:40rpx;
   padding:30rpx 10rpx;
 }
 .label {
   color: rgb(121, 121, 121);
   font-size: 30rpx;
+  margin-left:10rpx;
 }
 .btn-save {
   background:none;
@@ -31,4 +31,18 @@
   width:100%;
   top:38rpx;
   z-index: 2;
+}
+/* 类别弹窗 */
+.list-item {
+  padding:13rpx;
+  border-bottom:1rpx solid #eee;
+  text-align:center;
+  font-size:40rpx;
+
+}
+.list-item-cancel {
+  padding:26rpx 0 13rpx;
+  text-align:center;
+  font-size:40rpx;
+  color: #999;
 }

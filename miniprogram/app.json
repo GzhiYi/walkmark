@@ -19,6 +19,7 @@
     }
   },
   "usingComponents": {
-    "nav": "./pages/nav/nav"
+    "nav": "./pages/nav/nav",
+    "dialog": "./pages/dialog/dialog"
   }
 }

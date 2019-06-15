@@ -1,11 +1,13 @@
 Page({
   data: {
     statusBarHeight: 0,
-    errorMsg: '输入标记名称以继续',
+    errorMsg: '',
     markName: '',
     address: '',
     latitude: 0,
-    longitude: 0
+    longitude: 0,
+    positionType: '',
+    showTypeDialog: false
   },
   onLoad() {
     this.setData({
@@ -23,5 +25,16 @@ Page({
         })
       }
     })
+  },
+  showTypeList() {
+    this.setData({
+      showTypeDialog: !this.data.showTypeDialog
+    })
+  },
+  selectType(event) {
+    this.setData({
+      positionType: event.target.dataset.type
+    })
+    this.showTypeList()
   }
 })
