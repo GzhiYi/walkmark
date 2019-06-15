@@ -81,8 +81,10 @@ Page({
       this.showValidateMsg('未填写记录')
       return false
     }
-    const nav = this.selectComponent('.nav-instance')
-    nav.showLoading()
+
+    wx.showLoading({
+      title: '创建中..'
+    })
     // 增加标记处理
     wx.cloud.callFunction({
       name: 'mark',
@@ -96,12 +98,23 @@ Page({
         addressType
       },
       success(res) {
-        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '创建成功',
+          icon: 'success',
+          mask: true
+        })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1500)
       },
-      complete() {
-        const nav = self.selectComponent('.nav-instance')
-        nav.hideLoading()
-      },
+      fail() {
+        wx.showToast({
+          title: '创建失败',
+          icon: 'error',
+          mask: true
+        })
+      }
     })
   }
 })

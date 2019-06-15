@@ -30,4 +30,17 @@ exports.main = async (event, context) => {
       message: '新增成功'
     }
   }
+  // 获取标记列表哦
+  if (event.mode === 'get') {
+    const getRes = await db.collection('mark')
+    .where({
+      openId: wxContext.OPENID
+    })
+    .get()
+    return {
+      code: 1,
+      data: getRes.data,
+      message: '获取列表成功'
+    }
+  }
 }

@@ -2,11 +2,54 @@ page {
   background: rgb(255, 232, 59);
 }
 .recommend {
-  height:800rpx;
-  background:#eee;
+  min-height:800rpx;
+  background:rgb(255, 248, 198);
   margin-top:300rpx;
   display:flex;
   justify-content:center;
   align-items:center;
+  flex-direction:column;
   border-radius:18rpx;
+  padding: 30rpx;
+  position: relative;
+}
+.mark-name {
+  font-size:80rpx;
+  font-weight:bold;
+  text-align: center;
+}
+.remark {
+  margin:40rpx 0 0;
+  font-size:45rpx;
+}
+.mark-address {
+  margin-bottom:120rpx;
+  text-align:left;
+  width:100%;
+  font-size:30rpx;
+  margin-top:30rpx;
+  color:#686868;
+}
+.desc {
+  font-size:24rpx;
+  color:#686868;
+  position:absolute;
+  bottom:20rpx;
+  display:flex;
+  justify-content:space-between;
+  width:89%;
+  padding:21rpx 0 0;
+  align-items:center;
+  border-top:2px solid #666;
+}
+.label {
+  display:inline-block;
+  border:1rpx solid rgb(255, 232, 59);
+  border-radius:18rpx;
+  padding:0 16rpx;
+}
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }

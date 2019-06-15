@@ -1,5 +1,5 @@
 <view class='nav-wrap' style="background-color:{{bgColor}};">
-    <view style="height:{{statusBarHeight}}px;background: red;"></view>
+    <view style="height:{{statusBarHeight}}px;"></view>
     <view class='content'>
       <view class='nav-icon-view-back' bindtap='back' wx:if="{{showBackIcon}}">
         <image class='nav-icon' src='../../images/left-arrow-black.png'></image>

@@ -1,6 +1,23 @@
 <nav bgColor="black" class="nav-instance" showIcons="{{['home']}}"></nav>
 <view class="main-content">
-  <view class='recommend'>
+  <view class='recommend' wx:if="{{markList.length === 0 && loaded}}">
     还未做任何标记，赶紧去标记吧！
   </view>
+  <view class='recommend' wx:if="{{markList.length > 0 && loaded}}">
+    <view class='mark-name'>{{markList[showMarkIndex].markname}}</view>
+    <text class='remark'>{{markList[showMarkIndex].remark}}</text>
+    <view class='mark-address'>{{markList[showMarkIndex].address}}</view>
+    <view class='desc'>
+      <view class='desc-info'>
+        布达佩斯的猫<text wx:if="{{greetWord}}">，{{greetWord}}</text>
+        <view>该标记离你最近，约400m</view>
+      </view>
+      <view>
+        <image src='https://images.vrm.cn/2019/06/15/avatar.jpg' class='avatar'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='switch'>
+
 </view>
