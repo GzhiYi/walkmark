@@ -7,6 +7,7 @@
   border-radius: 18rpx;
   padding: 15rpx;
   background:#fff;
+  z-index:99;
 }
 .dialog-bg {
   background:rgba(0, 0, 0, 0.705);
@@ -14,5 +15,5 @@
   width:100%;
   position:fixed;
   top:0;
-  z-index: 99;
+  z-index: 98;
 }

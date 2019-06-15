@@ -33,7 +33,7 @@
     
   </view>
 </view>
-<dialog visible="{{showTypeDialog}}">
+<dialog visible="{{showTypeDialog}}" bind:closeDialog="showTypeList">
   <view slot="content">
     <view class='list-item' bindtap='selectType' data-type="吃的">吃的</view>
     <view class='list-item' bindtap='selectType' data-type="喝的">喝的</view>

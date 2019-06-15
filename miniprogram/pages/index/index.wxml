@@ -4,6 +4,7 @@
     还未做任何标记，赶紧去标记吧！
   </view>
   <view class='recommend' wx:if="{{markList.length > 0 && loaded}}">
+    <view class='pager'><text class='current-page'>{{showMarkIndex + 1}}</text>/ {{markList.length}}</view>
     <view class='mark-name'>{{markList[showMarkIndex].markname}}</view>
     <text class='remark'>{{markList[showMarkIndex].remark}}</text>
     <view class='mark-address'>{{markList[showMarkIndex].address}}</view>
@@ -18,6 +19,22 @@
     </view>
   </view>
 </view>
-<view class='switch'>
-
+<view class='switch' wx:if="{{markList.length > 0 && loaded}}">
+  <view class='one-switch' catchtap='goPre' bindlongtap='resetIndex'>
+    <image class='switch-icon' src='../../images/undo.png'></image>
+  </view>
+  <view class='one-switch' bindtap='showMenu'>
+    <image class='switch-icon' src='../../images/menu.png'></image>
+  </view>
+  <view class='one-switch' bindtap='goNext'>
+    <image class='switch-icon' src='../../images/right-arrow.png'></image>
+  </view>
 </view>
+<!-- 菜单弹窗 -->
+<dialog visible="{{showMenuDialog}}" bind:closeDialog="showMenu">
+  <view slot="content">
+    <view class='list-item' bindtap='selectType' data-type="吃的">编辑</view>
+    <view class='list-item' bindtap='selectType' data-type="喝的" style="color: red;">删除</view>
+    <view class='list-item-cancel' bindtap='showMenu'>取消</view>
+  </view>
+</dialog>

@@ -16,5 +16,11 @@ Component({
     console.log('this', this.data.visible)
   },
   methods: {
+    closeDialog() {
+      this.setData({
+        visible: false
+      })
+      this.triggerEvent('closeDialog')
+    }
   }
 })

@@ -6,7 +6,8 @@ Page({
     markList: [],
     loaded: false,
     greetWord: '',
-    showMarkIndex: 0
+    showMarkIndex: 0,
+    showMenuDialog: false
   },
   onLoad: function() {
   },
@@ -53,5 +54,22 @@ Page({
   hideLoading() {
     const nav = this.selectComponent('.nav-instance')
     nav.hideLoading()
+  },
+  goNext() {
+    const markListLength = this.data.markList.length
+    this.setData({
+      showMarkIndex: this.data.showMarkIndex === markListLength - 1 ? 0 : this.data.showMarkIndex + 1
+    })
+  },
+  goPre() {
+    const markListLength = this.data.markList.length
+    this.setData({
+      showMarkIndex: this.data.showMarkIndex === 0 ? markListLength - 1 : this.data.showMarkIndex - 1
+    })
+  },
+  showMenu() {
+    this.setData({
+      showMenuDialog: !this.data.showMenuDialog
+    })
   }
 })
