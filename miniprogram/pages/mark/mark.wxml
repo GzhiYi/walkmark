@@ -1,27 +1,31 @@
 <nav bgColor="black" class="nav-instance" showIcons="{{['back']}}"></nav>
 <view class="main-content">
   <view class='title' style="padding-top: {{statusBarHeight}}rpx;">
-    创建一个标记
+    {{isEdit ? '编辑标记' : '创建一个标记'}}
     <button class="btn btn-save" bindtap='save'>保存</button>
   </view>
   <view class='error-tips'>{{errorMsg}}</view>
   <view class='input-form'>
-    <input placeholder='标记名称' value="{{markname}}" data-name="markname" bindinput='onInputChange'></input>
+    <view style='position: relative;'>
+      <image src="../../images/input-markname.png" class='input-icon'></image><text class='label'>标记</text>
+      <input placeholder='填写名称' value="{{markname}}" data-name="markname" bindinput='onInputChange'></input>
+    </view>
+    
 
     <view class="one-input" style='position: relative;'>
-      <text class='label'>地点</text>
+      <image src="../../images/input-location.png" class='input-icon'></image><text class='label'>地点</text>
       <input :disabled='{{true}}' placeholder='选择地点' value="{{address}}"></input>
       <button class='invisible-btn' bindtap="chooseLocation"></button>
     </view>
 
     <view class="one-input" style='position: relative;'>
-      <text class='label'>类别</text>
+      <image src="../../images/input-type.png" class='input-icon'></image><text class='label'>类别</text>
       <input :disabled='{{true}}' placeholder='选择类别' value="{{addressType}}"></input>
       <button class='invisible-btn' bindtap="showTypeList"></button>
     </view>
 
     <view class="one-input">
-      <text class='label'>记录</text>
+      <image src="../../images/input-remark.png" class='input-icon'></image><text class='label'>记录</text>
       <textarea
         style='width:100%;box-sizing:border-box;'
         placeholder='途径此处记下...'

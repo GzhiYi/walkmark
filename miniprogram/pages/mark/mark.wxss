@@ -48,3 +48,10 @@
 .one-input {
   margin-top: 10rpx;
 }
+.input-icon {
+  width:35rpx;
+  height:35rpx;
+  position:relative;
+  top:4rpx;
+  margin-left:10rpx;
+}

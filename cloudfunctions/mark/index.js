@@ -48,6 +48,40 @@ exports.main = async (event, context) => {
       message: '新增成功'
     }
   }
+  if (event.mode === 'edit') {
+    const editRes = await db.collection('mark').doc(event._id).update({
+      data: {
+        markname,
+        address,
+        longitude,
+        latitude,
+        remark,
+        addressType,
+        undateTime: Date.parse(new Date()),
+        nearTimes: 1,
+        openId: wxContext.OPENID,
+        deleted: false
+      }
+    })
+    return {
+      code: 1,
+      data: editRes,
+      message: '编辑成功'
+    }
+  }
+  if (event.mode === 'delete') {
+    const deleteRes = await db.collection('mark').doc(event._id).update({
+      data: {
+        undateTime: Date.parse(new Date()),
+        deleted: true
+      }
+    })
+    return {
+      code: 1,
+      data: deleteRes,
+      message: '删除成功'
+    }
+  }
   // 获取标记列表哦
   if (event.mode === 'get') {
     const { currentLatitude, currentLongtitude } = event

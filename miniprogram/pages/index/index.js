@@ -12,10 +12,12 @@ Page({
     userInfo: {}
   },
   onLoad: function() {
-
+    
   },
   onShow() {
     const self = this
+    // 需要清空标记的编辑数据
+    getApp().globalData.editMark = null
     wx.getSetting({
       success(res) {
         console.log("这个先", res)
@@ -141,5 +143,54 @@ Page({
         showAuthDialog: false
       })
     }
-  }
+  },
+  // 编辑标记
+  goToEdit() {
+    getApp().globalData.editMark = this.data.markList[this.data.showMarkIndex]
+    this.setData({
+      showMenuDialog: false
+    })
+    wx.navigateTo({
+      url: '/pages/mark/mark'
+    })
+  },
+  // 删除标记
+  deleteMark() {
+    const self = this
+    self.setData({
+      showMenuDialog: false
+    })
+    wx.cloud.callFunction({
+      name: 'mark',
+      data: {
+        mode: 'delete',
+        _id: this.data.markList[this.data.showMarkIndex]._id
+      },
+      success() {
+        self.getMarkList()
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          mask: true
+        })
+      },
+      fail() {
+        wx.showToast({
+          title: '删除失败',
+          icon: 'error',
+          mask: true
+        })
+        self.setData({
+          showMenuDialog: true
+        })
+      }
+    })
+  },
+  goTo(event) {
+    console.log(event)
+    const { page } = event.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/${page}/${page}`
+    })
+  },
 })

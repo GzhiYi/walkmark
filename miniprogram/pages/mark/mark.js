@@ -8,12 +8,38 @@ Page({
     longitude: 0,
     addressType: '',
     showTypeDialog: false,
-    remark: ''
+    remark: '',
+    isEdit: false,
+    _id: ''
   },
   onLoad() {
+    const self = this
     this.setData({
       statusBarHeight: getApp().globalData.statusBarHeight
     })
+    if (getApp().globalData.editMark) {
+      self.setData({
+        isEdit: true
+      })
+      // 先获取坐标信息
+      wx.getLocation({
+        success: function(res) {
+          const { markname, addressType, remark, _id } = getApp().globalData.editMark
+          self.setData({
+            markname,
+            latitude: res.latitude,
+            longitude: res.latitude,
+            addressType,
+            remark,
+            _id
+          })
+        },
+      })
+    } else {
+      self.setData({
+        isEdit: false
+      })
+    }
   },
   chooseLocation() {
     const self = this
@@ -62,7 +88,7 @@ Page({
   },
   // 保存标记
   save() {
-    const { markname, address, latitude, longitude, addressType, remark } = this.data
+    const { markname, address, latitude, longitude, addressType, remark, _id, isEdit } = this.data
     const self = this
     // 表单基本验证
     if (!markname) {
@@ -89,18 +115,19 @@ Page({
     wx.cloud.callFunction({
       name: 'mark',
       data: {
-        mode: 'add',
+        mode: isEdit ? 'edit' : 'add',
         markname,
         address,
         longitude,
         latitude,
         remark,
-        addressType
+        addressType,
+        _id
       },
       success(res) {
         wx.hideLoading()
         wx.showToast({
-          title: '创建成功',
+          title: isEdit ? '编辑成功' : '创建成功',
           icon: 'success',
           mask: true
         })
@@ -108,9 +135,10 @@ Page({
           wx.navigateBack()
         }, 1500)
       },
-      fail() {
+      fail(error) {
+        console.log(error, 'edit')
         wx.showToast({
-          title: '创建失败',
+          title: isEdit ? '编辑失败' : '创建失败',
           icon: 'error',
           mask: true
         })

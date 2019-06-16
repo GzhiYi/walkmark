@@ -1,6 +1,7 @@
 <nav bgColor="black" class="nav-instance" showIcons="{{['home']}}"></nav>
 <view class="main-content">
-  <view class='recommend' wx:if="{{markList.length === 0 && loaded}}">
+  <view bindtap='goTo' data-page="mark" class='recommend' wx:if="{{markList.length === 0 && loaded}}">
+    <image src="../../images/panels.png" style="width: 128rpx;height: 128rpx;margin-bottom:50px;"></image>
     还未做任何标记，赶紧去标记吧！
   </view>
   <swiper
@@ -50,8 +51,8 @@
 <!-- 菜单弹窗 -->
 <dialog visible="{{showMenuDialog}}" bind:closeDialog="showMenu">
   <view slot="content">
-    <view class='list-item' bindtap='selectType' data-type="吃的">编辑</view>
-    <view class='list-item' bindtap='selectType' data-type="喝的" style="color: red;">删除</view>
+    <view class='list-item' bindtap='goToEdit' data-type="吃的">编辑</view>
+    <view class='list-item' bindtap='deleteMark' data-type="喝的" style="color: red;">删除</view>
     <view class='list-item-cancel' bindtap='showMenu'>取消</view>
   </view>
 </dialog>

@@ -20,6 +20,7 @@ App({
     navBarHeight: 0,
     isLoading: false,
     mapKey: '1336441a0caba99fa000ea16c31a816d',
-    userInfo: {}
+    userInfo: {},
+    editMark: null
   }
 })
