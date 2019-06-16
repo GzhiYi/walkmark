@@ -55,7 +55,21 @@
   top:4rpx;
   margin-left:10rpx;
 }
+.type-icon {
+  width:40rpx;
+  height:40rpx;
+  position:relative;
+  top:4rpx;
+  margin-left:10rpx;
+}
 .fake-remark {
-  padding:7rpx 10rpx;
+  padding:10rpx 10rpx 30rpx;
+  border-bottom:1rpx solid #eee;
   color: grey;
+}
+.type-item {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0 20rpx;
+  border-radius:12rpx;
 }

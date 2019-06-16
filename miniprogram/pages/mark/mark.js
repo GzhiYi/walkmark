@@ -10,7 +10,8 @@ Page({
     showTypeDialog: false,
     remark: '',
     isEdit: false,
-    _id: ''
+    _id: '',
+    typeList: []
   },
   onLoad() {
     const self = this
@@ -40,6 +41,22 @@ Page({
         isEdit: false
       })
     }
+    this.getTypeList()
+  },
+  getTypeList() {
+    const self = this
+    wx.cloud.callFunction({
+      name: 'type',
+      data: {
+        mode: 'get'
+      },
+      success(res) {
+        console.log(res, 'type list')
+        self.setData({
+          typeList: res.result.data
+        })
+      }
+    })
   },
   chooseLocation() {
     const self = this
@@ -66,7 +83,7 @@ Page({
   },
   selectType(event) {
     this.setData({
-      addressType: event.target.dataset.type
+      addressType: event.currentTarget.dataset.type
     })
     this.showTypeList()
   },

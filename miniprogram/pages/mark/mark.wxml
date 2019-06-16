@@ -43,10 +43,19 @@
 </view>
 <dialog visible="{{showTypeDialog}}" bind:closeDialog="showTypeList">
   <view slot="content">
-    <view class='list-item' bindtap='selectType' data-type="吃的">吃的</view>
-    <view class='list-item' bindtap='selectType' data-type="喝的">喝的</view>
-    <view class='list-item' bindtap='selectType' data-type="玩的">玩的</view>
-    <view class='list-item' bindtap='selectType' data-type="乐的">乐的</view>
+    <view
+      class='list-item'
+      wx:for="{{typeList}}"
+      wx:key="{{item._id}}"
+      bindtap='selectType'
+      data-type="{{item.name}}"
+    >
+      <view style="{{ item.name === addressType ? 'background: rgb(255, 248, 198);' : ''}}" class='type-item'>
+        <image class='type-icon' src="{{item.icon}}"></image>
+        {{item.name}}
+      </view>
+    </view>
+    
     <view class='list-item-cancel' bindtap='showTypeList'>取消</view>
   </view>
 </dialog>
