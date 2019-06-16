@@ -10,7 +10,7 @@
   padding:30rpx 10rpx;
 }
 .label {
-  color: rgb(77, 77, 77);
+  color: #333;
   font-size: 30rpx;
   margin-left:10rpx;
 }
@@ -54,4 +54,8 @@
   position:relative;
   top:4rpx;
   margin-left:10rpx;
+}
+.fake-remark {
+  padding:7rpx 10rpx;
+  color: grey;
 }
