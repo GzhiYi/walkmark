@@ -82,7 +82,6 @@ Component({
       }
     },
     goTo(event) {
-      console.log(event)
       const { page } = event.currentTarget.dataset
       wx.navigateTo({
         url: `/pages/${page}/${page}`

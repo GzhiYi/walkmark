@@ -20,7 +20,6 @@ Page({
     getApp().globalData.editMark = null
     wx.getSetting({
       success(res) {
-        console.log("这个先", res)
         // 判断用户个人信息授权情况
         if (!res.authSetting['scope.userInfo']) {
           self.setData({
@@ -60,11 +59,6 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success(res) {
-        console.log("lalal", {
-          mode: 'get',
-          currentLatitude: res.latitude,
-          currentLongtitude: res.longitude
-        })
         self.setData({
           showLocationDialog: false
         })
@@ -76,7 +70,6 @@ Page({
             currentLongtitude: res.longitude
           },
           success(res) {
-            console.log(res)
             self.setData({
               markList: res.result.data,
               loaded: true
@@ -88,8 +81,7 @@ Page({
         })
       },
       fail(error) {
-        console.log(error, "************")
-        if (error.errMsg === 'getLocation:fail auth deny') {
+        if (error.errMsg === 'getLocation:fail auth deny' || error.errMsg === 'getLocation:fail authorize no response') {
           self.setData({
             showAuthDialog: false,
             showLocationDialog: true
@@ -134,7 +126,6 @@ Page({
     })
   },
   onGotUserInfo(event) {
-    console.log(event)
     const self = this
     if (event.detail.errMsg === 'getUserInfo:ok') {
       getApp().globalData.userInfo = event.detail.userInfo
@@ -187,7 +178,6 @@ Page({
     })
   },
   goTo(event) {
-    console.log(event)
     const { page } = event.currentTarget.dataset
     wx.navigateTo({
       url: `/pages/${page}/${page}`

@@ -51,7 +51,6 @@ Page({
         mode: 'get'
       },
       success(res) {
-        console.log(res, 'type list')
         self.setData({
           typeList: res.result.data
         })
@@ -62,7 +61,6 @@ Page({
     const self = this
     wx.chooseLocation({
       success: function(res) {
-        console.log(res)
         // 选择地图有可能未正确选到
         const { address, latitude, longitude, name } = res
         if (!address && !name) {
@@ -153,7 +151,6 @@ Page({
         }, 1500)
       },
       fail(error) {
-        console.log(error, 'edit')
         wx.showToast({
           title: isEdit ? '编辑失败' : '创建失败',
           icon: 'error',

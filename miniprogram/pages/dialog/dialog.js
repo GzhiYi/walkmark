@@ -13,7 +13,6 @@ Component({
   ready() {
   },
   attached() {
-    console.log('this', this.data.visible)
   },
   methods: {
     closeDialog() {

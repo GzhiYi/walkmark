@@ -41,7 +41,6 @@ exports.main = async (event, context) => {
         deleted: false
       }
     })
-    console.log(addRes, '新增返回')
     return {
       code: 1,
       data: addRes,
