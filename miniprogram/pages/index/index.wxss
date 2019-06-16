@@ -10,8 +10,10 @@ page {
   align-items:center;
   flex-direction:column;
   border-radius:18rpx;
-  padding: 30rpx;
-  position: relative;
+  padding:30rpx;
+  position:relative;
+  margin-right:10rpx;
+  margin-left:10rpx;
 }
 .mark-name {
   font-size:80rpx;
@@ -60,7 +62,7 @@ page {
 .switch {
   display:flex;
   justify-content:space-around;
-  margin-top:70rpx;
+  margin-top:20rpx;
 }
 .one-switch {
   display:flex;

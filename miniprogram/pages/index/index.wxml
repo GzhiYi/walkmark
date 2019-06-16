@@ -3,21 +3,38 @@
   <view class='recommend' wx:if="{{markList.length === 0 && loaded}}">
     还未做任何标记，赶紧去标记吧！
   </view>
-  <view class='recommend' wx:if="{{markList.length > 0 && loaded}}">
-    <view class='pager'><text class='current-page'>{{showMarkIndex + 1}}</text>/ {{markList.length}}</view>
-    <view class='mark-name'>{{markList[showMarkIndex].markname}}</view>
-    <text class='remark'>{{markList[showMarkIndex].remark}}</text>
-    <view class='mark-address'>{{markList[showMarkIndex].address}}</view>
-    <view class='desc'>
-      <view class='desc-info'>
-        布达佩斯的猫<text wx:if="{{greetWord}}">，{{greetWord}}</text>
-        <view>该标记离你最近，约400m</view>
-      </view>
-      <view>
-        <image src='https://images.vrm.cn/2019/06/15/avatar.jpg' class='avatar'></image>
-      </view>
-    </view>
-  </view>
+  <swiper
+    indicator-dots="{{false}}"
+    style="min-height: 1000rpx;"
+    autoplay="{{false}}"
+    duration="{{700}}"
+    wx:if="{{markList.length > 0 && loaded}}"
+    current="{{showMarkIndex}}"
+    circular="{{true}}"
+    easing-function="easeInOutCubic"
+    skip-hidden-item-layout="{{true}}"
+  >
+    <block wx:for="{{markList}}" wx:key="{{item._id}}">
+      <swiper-item style="min-height:800rpx;">
+        <view class='recommend'>
+          <view class='pager'><text class='current-page'>{{index + 1}}</text>/ {{markList.length}}</view>
+          <view class='mark-name'>{{item.markname}}</view>
+          <text class='remark'>{{item.remark}}</text>
+          <view class='mark-address'>{{item.address}}</view>
+          <view class='desc'>
+            <view class='desc-info'>
+              布达佩斯的猫<text wx:if="{{greetWord}}">，{{greetWord}}</text>
+              <view>该标记离你最近，约400m</view>
+            </view>
+            <view>
+              <image src='https://images.vrm.cn/2019/06/15/avatar.jpg' class='avatar'></image>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  
 </view>
 <view class='switch' wx:if="{{markList.length > 0 && loaded}}">
   <view class='one-switch' catchtap='goPre' bindlongtap='resetIndex'>
