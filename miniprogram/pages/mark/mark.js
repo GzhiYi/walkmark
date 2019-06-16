@@ -161,5 +161,12 @@ Page({
         })
       }
     })
+  },
+  onShareAppMessage() {
+    return {
+      title: '去过的地方还要看地图怎么走？做个标记就行！',
+      path: '/pages/index/index',
+      imageUrl: '../../images/share-banner.png'
+    }
   }
 })
