@@ -43,6 +43,9 @@ Component({
       transformOrigin: '50% 50% 0'
     })
   },
+  detached() {
+    this.hideLoading()
+  },
   methods: {
     back() {
       wx.navigateBack({

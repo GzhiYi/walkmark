@@ -164,6 +164,9 @@ Page({
           icon: 'success',
           mask: true
         })
+        self.setData({
+          showMarkIndex: 0
+        })
       },
       fail() {
         wx.showToast({
