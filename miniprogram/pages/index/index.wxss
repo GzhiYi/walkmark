@@ -107,3 +107,22 @@ page {
   font-size:40rpx;
   color: #999;
 }
+.auth-info {
+  display:flex;
+  padding:40rpx 20rpx;
+}
+.icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.info-detail {
+  width: 80%;
+  font-size:41rpx;
+}
+.auth-userinfo-btn {
+  width:92%;
+  margin-bottom:44rpx;
+  font-weight: bold;
+}

@@ -87,6 +87,12 @@ Component({
       wx.navigateTo({
         url: `/pages/${page}/${page}`
       })
+    },
+    inDev() {
+      wx.showToast({
+        title: '功能正在开发中...',
+        icon: 'none'
+      })
     }
   }
 })

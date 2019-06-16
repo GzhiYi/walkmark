@@ -8,10 +8,10 @@
         <image style='margin-right: 10rpx;' class='nav-icon' src='../../images/cursor.png'></image>
         标记
       </view>
-      <view class='nav-icon-view' wx:if="{{showHomeIcons}}">
+      <view class='nav-icon-view' wx:if="{{showHomeIcons}}" bindtap='inDev'>
         <image class='nav-icon' src='../../images/settings-black.png'></image>
       </view>
-      <view class='nav-icon-view' wx:if="{{showHomeIcons}}">
+      <view class='nav-icon-view' wx:if="{{showHomeIcons}}"  bindtap='inDev'>
         <image class='nav-icon' style="width:38rpx;height:38rpx;" src='../../images/user.png'></image>
       </view>
       <view class='nav-icon-view' bindtap='startAnimationInterval' wx:if="{{showLoadingIcon}}">

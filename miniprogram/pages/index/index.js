@@ -7,11 +7,35 @@ Page({
     loaded: false,
     greetWord: '',
     showMarkIndex: 0,
-    showMenuDialog: false
+    showMenuDialog: false,
+    showAuthDialog: false,
+    userInfo: {}
   },
   onLoad: function() {
+
   },
   onShow() {
+    const self = this
+    wx.getSetting({
+      success(res) {
+        console.log("这个先", res)
+        // 判断用户个人信息授权情况
+        if (!res.authSetting['scope.userInfo']) {
+          self.setData({
+            showAuthDialog: true
+          })
+        } else {
+          wx.getUserInfo({
+            success(event) {
+              self.setData({
+                userInfo: event.userInfo
+              })
+              getApp().globalData.userInfo = event.userInfo
+            }
+          })
+        }
+      }
+    })
     this.getMarkList()
     const hour = new Date().getHours()
     let word = ''
@@ -39,6 +63,9 @@ Page({
           currentLatitude: res.latitude,
           currentLongtitude: res.longitude
         })
+        self.setData({
+          showLocationDialog: false
+        })
         wx.cloud.callFunction({
           name: 'mark',
           data: {
@@ -57,6 +84,15 @@ Page({
             self.selectComponent('.nav-instance').hideLoading()
           }
         })
+      },
+      fail(error) {
+        console.log(error, "************")
+        if (error.errMsg === 'getLocation:fail auth deny') {
+          self.setData({
+            showAuthDialog: false,
+            showLocationDialog: true
+          })
+        }
       }
     })
   },
@@ -84,5 +120,26 @@ Page({
     this.setData({
       showMenuDialog: !this.data.showMenuDialog
     })
+  },
+  showAuth() {
+    this.setData({
+      showAuthDialog: !this.data.showAuthDialog
+    })
+  },
+  showLocation() {
+    this.setData({
+      showLocationDialog: !this.data.showLocationDialog
+    })
+  },
+  onGotUserInfo(event) {
+    console.log(event)
+    const self = this
+    if (event.detail.errMsg === 'getUserInfo:ok') {
+      getApp().globalData.userInfo = event.detail.userInfo
+      self.setData({
+        userInfo: event.detail.userInfo,
+        showAuthDialog: false
+      })
+    }
   }
 })

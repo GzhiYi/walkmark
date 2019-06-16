@@ -23,11 +23,11 @@
           <view class='mark-address'>{{item.address}}</view>
           <view class='desc'>
             <view class='desc-info'>
-              布达佩斯的猫<text wx:if="{{greetWord}}">，{{greetWord}}</text>
-              <view>该标记离你最近，约 {{item.distance}} km</view>
+              {{userInfo.nickName || '未知的你'}}<text wx:if="{{greetWord}}">，{{greetWord}}</text>
+              <view>该标记离你{{showMarkIndex === 0 ? '最近，' : ''}}约 {{item.distance}} km</view>
             </view>
             <view>
-              <image src='https://images.vrm.cn/2019/06/15/avatar.jpg' class='avatar'></image>
+              <image src='{{userInfo.avatarUrl}}' class='avatar'></image>
             </view>
           </view>
         </view>
@@ -53,5 +53,41 @@
     <view class='list-item' bindtap='selectType' data-type="吃的">编辑</view>
     <view class='list-item' bindtap='selectType' data-type="喝的" style="color: red;">删除</view>
     <view class='list-item-cancel' bindtap='showMenu'>取消</view>
+  </view>
+</dialog>
+
+<!-- 授权用户信息弹窗 -->
+<dialog visible="{{showAuthDialog}}" bind:closeDialog="showAuth">
+  <view slot="content">
+    <view class='auth-info'>
+      <image src="../../images/icon.png" class='icon'></image>
+      <view class='info-detail'>
+        <view>欢迎使用行走标记。</view>
+        授权微信账号登录以获得更好的体验。
+      </view>
+    </view>
+    <button
+      open-type='getUserInfo'
+      bindgetuserinfo="onGotUserInfo"
+      class='auth-userinfo-btn'
+      style='background: rgb(255, 232, 59)'
+    >授权</button>
+  </view>
+</dialog>
+<!-- 授权用户地理位置弹窗 -->
+<dialog visible="{{showLocationDialog}}" bind:closeDialog="showLocation">
+  <view slot="content">
+    <view class='auth-info'>
+      <image src="../../images/icon.png" class='icon'></image>
+      <view class='info-detail'>
+        <view>行走标记需要获取地理信息。</view>
+        打开设置后勾选“使用我的位置位置”返回即可使用。
+      </view>
+    </view>
+    <button
+      open-type='openSetting'
+      class='auth-userinfo-btn'
+      style='background: rgb(255, 232, 59)'
+    >打开设置</button>
   </view>
 </dialog>

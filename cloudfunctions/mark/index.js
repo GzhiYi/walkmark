@@ -37,7 +37,8 @@ exports.main = async (event, context) => {
         createTime: Date.parse(new Date()),
         undateTime: Date.parse(new Date()),
         nearTimes: 1,
-        openId: wxContext.OPENID
+        openId: wxContext.OPENID,
+        deleted: false
       }
     })
     console.log(addRes, '新增返回')
@@ -53,7 +54,8 @@ exports.main = async (event, context) => {
     const getRes = await db.collection('mark')
     .limit(10)
     .where({
-      openId: wxContext.OPENID
+      openId: wxContext.OPENID,
+      deleted: false
     })
     .get()
     getRes.data.forEach(mark => {

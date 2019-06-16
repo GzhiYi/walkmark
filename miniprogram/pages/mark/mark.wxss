@@ -15,10 +15,9 @@
   margin-left:10rpx;
 }
 .btn-save {
-  background:none;
   width:auto;
   line-height:64rpx;
-  background:orange;
+  background:rgb(255, 232, 59);
   border-radius:31rpx;
   color:#000;
   float:right;
