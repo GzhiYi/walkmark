@@ -24,7 +24,7 @@
           <view class='desc'>
             <view class='desc-info'>
               布达佩斯的猫<text wx:if="{{greetWord}}">，{{greetWord}}</text>
-              <view>该标记离你最近，约400m</view>
+              <view>该标记离你最近，约 {{item.distance}} km</view>
             </view>
             <view>
               <image src='https://images.vrm.cn/2019/06/15/avatar.jpg' class='avatar'></image>

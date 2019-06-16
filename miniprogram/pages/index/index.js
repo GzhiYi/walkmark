@@ -30,20 +30,33 @@ Page({
   getMarkList() {
     const self = this
     self.selectComponent('.nav-instance').showLoading()
-    wx.cloud.callFunction({
-      name: 'mark',
-      data: {
-        mode: 'get'
-      },
+    // 获取当前位置的经纬度！
+    wx.getLocation({
+      type: 'wgs84',
       success(res) {
-        console.log(res)
-        self.setData({
-          markList: res.result.data,
-          loaded: true
+        console.log("lalal", {
+          mode: 'get',
+          currentLatitude: res.latitude,
+          currentLongtitude: res.longitude
         })
-      },
-      complete() {
-        self.selectComponent('.nav-instance').hideLoading()
+        wx.cloud.callFunction({
+          name: 'mark',
+          data: {
+            mode: 'get',
+            currentLatitude: res.latitude,
+            currentLongtitude: res.longitude
+          },
+          success(res) {
+            console.log(res)
+            self.setData({
+              markList: res.result.data,
+              loaded: true
+            })
+          },
+          complete() {
+            self.selectComponent('.nav-instance').hideLoading()
+          }
+        })
       }
     })
   },
