@@ -1,12 +1,11 @@
-# 云开发 quickstart
+# 行走标记
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+去过的地方还要看地图怎么走？在行走中留下标记，下次路过再打开，就可以直接看到留过的离你最近的标记。
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+## 小程序码
 
-## 参考文档
+![行走标记](http://tva1.sinaimg.cn/large/0060lm7Tly1g47oryj9xyj3076076ab3.jpg)
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+## 截图
 
+![截图](http://tva1.sinaimg.cn/large/0060lm7Tly1g47ousro7sj30n01dsgse.jpg)
